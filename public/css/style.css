@@ -1,0 +1,691 @@
+:root {
+  --deep: #14364f;
+  --deep-2: #1d4a68;
+  --gold: #d9b46a;
+  --gold-dark: #a8843d;
+  --gold-light: #f0dcae;
+  --cream: #faf6ec;
+  --text: #2b2b2b;
+  --text-soft: #5a5a5a;
+  --shadow: 0 8px 24px rgba(20, 54, 79, 0.08);
+  --shadow-hover: 0 16px 32px rgba(20, 54, 79, 0.12);
+}
+
+/* ===== Базовые стили ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  scroll-margin-top: 80px;
+}
+
+/* ===== Доступность ===== */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--gold);
+  color: var(--deep);
+  padding: 12px 20px;
+  z-index: 100;
+  font-weight: 500;
+}
+
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+  border-radius: 4px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ===== Хэдер ===== */
+.header {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  text-align: center;
+  aspect-ratio: 1825 / 753;
+  background-image: url("/img/Header_for_Gold_Lotus.png");
+  background-size: cover;
+  background-position: center bottom; /* Сохраняем лотос и силуэт в нижней части кадра */
+  background-repeat: no-repeat;
+  color: var(--cream);
+  align-items: flex-start; /* Прижимаем текстовый блок к верхней части */
+  justify-content: flex-start;
+  padding: 3% 4%; /* Отступы сверху и слева, как на макете */
+}
+
+.header-content {
+  max-width: 650px;
+  text-align: left;
+}
+
+.header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  line-height: 1.05;
+  color: var(--gold-light); /* Теплый золотистый оттенок, как на картинке */
+  text-shadow: 0 4px 16px rgba(10, 28, 42, 0.5);
+}
+
+.header p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: clamp(1.2rem, 1.2vw, 1.2rem);
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  opacity: 0.92;
+  text-shadow: 0 2px 10px rgba(10, 28, 42, 0.6);
+  margin-left: 95px;
+}
+
+/* ===== Навигация ===== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(21, 48, 72, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 16px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 36px;
+  border-bottom: 1px solid rgba(217, 180, 106, 0.2);
+}
+
+nav a {
+  color: var(--gold-light);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.3s;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== Секции ===== */
+.section-title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--deep);
+  margin-bottom: 20px;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 16px auto 0;
+}
+
+.lead {
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 1.15rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ===== О студии ===== */
+.about p + p {
+  margin-top: 20px;
+}
+
+/* ===== Направления ===== */
+.directions {
+  background: linear-gradient(180deg, var(--cream) 0%, #f3ecdd 100%);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 32px;
+  box-shadow: var(--shadow);
+  border-top: 3px solid var(--gold);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(217, 180, 106, 0.15);
+  color: var(--gold-dark);
+  margin-bottom: 20px;
+}
+
+.card .icon svg {
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+}
+
+.card h3 {
+  color: var(--deep);
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+}
+
+.card p {
+  font-size: 1rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+/* ===== Для кого ===== */
+.for-whom {
+  background: var(--deep);
+  color: var(--cream);
+  border-radius: 24px;
+  margin: 40px auto;
+  max-width: 1000px;
+}
+
+.for-whom .section-title {
+  color: #fff;
+}
+
+.for-whom .section-title::after {
+  background: var(--gold);
+}
+
+.for-whom ul {
+  list-style: none;
+  max-width: 700px;
+  margin: 32px auto 0;
+}
+
+.for-whom li {
+  padding: 16px 0 16px 40px;
+  position: relative;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(240, 220, 174, 0.15);
+}
+
+.for-whom li:last-child {
+  border-bottom: none;
+}
+
+.for-whom li::before {
+  content: "✦";
+  position: absolute;
+  left: 8px;
+  top: 16px;
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+/* ===== Галерея ===== */
+.gallery {
+  background: #fff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  cursor: zoom-in;
+}
+
+.gallery-item img {
+  width: 120%;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+
+.gallery-item svg {
+  width: 60px;
+  height: 60px;
+  fill: var(--deep);
+  opacity: 0.6;
+}
+
+.gallery-placeholder {
+  color: var(--deep);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Полноэкранное окно по центру */
+dialog.lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  border: none;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+}
+
+/* Большое фото */
+dialog.lightbox img {
+  max-width: 85vw;
+  max-height: 88vh;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  user-select: none;
+}
+
+/* Общие стили для кнопок (закрыть и стрелки) */
+.lb-btn {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  transition: background 0.2s, transform 0.2s;
+  user-select: none;
+  z-index: 10;
+}
+
+/* Убираем обводку при фокусе */
+.lb-btn:focus,
+.lb-btn:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.lb-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.08);
+}
+
+/* Кнопка закрытия */
+.close-btn {
+  top: 20px;
+  right: 25px;
+  font-size: 32px;
+}
+
+/* Стрелки влево и вправо */
+.prev-btn {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev-btn:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+
+.next-btn {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.next-btn:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* ===== Руководитель ===== */
+.teacher {
+  background: linear-gradient(180deg, #f3ecdd 0%, var(--cream) 100%);
+}
+
+.teacher-content {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 40px;
+}
+
+.teacher-photo {
+  width: 100%;
+  aspect-ratio: 3/6.3;
+  border-left: solid 4px var(--gold-dark);
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+  box-shadow: var(--shadow-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.teacher-photo svg {
+  width: 120px;
+  height: 120px;
+  fill: var(--deep);
+  opacity: 0.4;
+}
+
+.teacher-info h3 {
+  font-size: 2rem;
+  color: var(--deep);
+  margin-bottom: 8px;
+}
+
+.teacher-position {
+  color: var(--gold-dark);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.teacher-bio p {
+  margin-bottom: 16px;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+.teacher-achievements {
+  margin-top: 70px;
+  padding: 24px;
+  background: rgba(217, 180, 106, 0.1);
+  border-radius: 12px;
+  border-left: 4px solid var(--gold);
+}
+
+.teacher-achievements h4 {
+  color: var(--deep);
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.teacher-achievements ul {
+  list-style: none;
+}
+
+.teacher-achievements li {
+  padding: 8px 0;
+  padding-left: 28px;
+  position: relative;
+  color: var(--text-soft);
+}
+
+.teacher-achievements li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--gold-dark);
+}
+
+.teacher-contacts {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(217, 180, 106, 0.3);
+}
+
+.teacher-contacts p {
+  margin: 8px 0;
+  color: var(--text-soft);
+}
+
+.teacher-contacts a {
+  color: var(--deep);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.teacher-contacts a:hover {
+  color: var(--gold-dark);
+}
+
+/* ===== Контакты ===== */
+.contacts {
+  background: #f3ecdd;
+  text-align: center;
+}
+
+.contacts .contact-line {
+  font-size: 1.1rem;
+  margin-top: 16px;
+  color: var(--text-soft);
+}
+
+.contacts a.phone-link {
+  color: var(--deep);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.4rem;
+  font-family: 'Cormorant Garamond', serif;
+  display: inline-block;
+  margin: 8px 0 24px;
+  transition: color 0.3s;
+}
+
+.contacts a.phone-link:hover {
+  color: var(--gold-dark);
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--gold);
+  color: var(--deep);
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background: var(--gold-dark);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--deep);
+  color: var(--deep);
+}
+
+.btn-outline:hover {
+  background: var(--deep);
+  color: var(--gold-light);
+}
+
+/* ===== Подвал ===== */
+footer {
+  background: var(--deep);
+  color: rgba(240, 220, 174, 0.7);
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* ===== Анимации появления при скролле ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Мобильная адаптация ===== */
+@media (max-width: 768px) {
+  section {
+    padding: 56px 20px;
+  }
+
+  nav {
+    gap: 12px 20px;
+    padding: 14px 16px;
+  }
+
+  nav a {
+    font-size: 15px;
+  }
+
+  .card {
+    padding: 32px 24px;
+  }
+
+  .teacher-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .teacher-photo {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transform: none;
+  }
+}
