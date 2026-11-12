@@ -76,7 +76,7 @@ button:focus-visible {
   display: flex;
   text-align: center;
   aspect-ratio: 1825 / 753;
-  background-image: url("/img/Header_for_Gold_Lotus.png");
+  background-image: url(".public/img/Header_for_Gold_Lotus.png");
   background-size: cover;
   background-position: center bottom; /* Сохраняем лотос и силуэт в нижней части кадра */
   background-repeat: no-repeat;
