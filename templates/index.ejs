@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Золотой лотос — вокал, йога, телесные практики в Долгопрудном</title>
@@ -21,6 +22,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
   <link rel="stylesheet" href="./public/css/style.css">
+  
 </head>
 <body>
 
@@ -65,8 +67,7 @@
           <h3>Вокал</h3>
           <p>
             Постановка дыхания, снятие голосовых зажимов, раскрытие природного тембра. Научитесь
-            чувствовать интонацию и выражать эмоции через песню. Бережный подход для любого уровня:<br>
-            от новичков до продвинутых вокалистов.
+            чувствовать интонацию и выражать эмоции через песню. Бережный подход для любого уровня: от новичков до продвинутых вокалистов.
           </p>
         </article>
 
@@ -76,7 +77,7 @@
           </div>
           <h3>Йога</h3>
           <p>
-            Мягкие потоки, восстанавливающие и силовые форматы, работа<br>с осанкой. Асаны, дыхательные
+            Мягкие потоки, восстанавливающие и силовые форматы, работа с осанкой. Асаны, дыхательные
             техники (пранаямы) и медитативные практики помогут снять стресс, улучшить гибкость и
             укрепить здоровье.
           </p>
@@ -101,7 +102,7 @@
       <h2 class="section-title">Для кого это пространство</h2>
       <ul>
         <li>Для тех, кто хочет научиться петь и раскрыть свой природный голос.</li>
-        <li>Для тех, кто ищет спокойный и бережный подход к йоге – без рекордов,<br>с фокусом на самочувствие.</li>
+        <li>Для тех, кто ищет спокойный и бережный подход к йоге – без рекордов, с фокусом на самочувствие.</li>
         <li>Для тех, кому важно снять напряжение, «услышать» свое тело и вернуть легкость движений.</li>
         <li>Для тех, кто хочет найти баланс и опору в насыщенном ритме современной жизни.</li>
         <li>Для всех, кто стремится к внутренней гармонии, здоровью и целостности.</li>
@@ -210,6 +211,7 @@
           <a class="btn" href="tel:+79194148220">Позвонить</a>
           <a class="btn btn-outline" href="https://wa.me/79194148220" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
           <a class="btn btn-outline" href="https://t.me/+79194148220" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+          <a class="btn btn-outline" href="https://vk.ru/id103850657" target="_blank" rel="noopener noreferrer">Написать в VK</a>
         </div>
       </address>
     </section>
@@ -306,6 +308,22 @@
       }, { threshold: 0.15 });
 
       document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+  </script>
+
+  <!-- Скрипт для автоматического переноса предлогов -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const selectors = 'p, h1, h2, h3, h4, li, blockquote';
+      const elements = document.querySelectorAll(selectors);
+    
+      // Список предлогов и союзов
+      const shortWords = '(в|без|до|из|к|на|по|о|от|перед|при|через|для|с|у|и|а|но|да|или|вы|не|он|она|оно|они|мы|ты|я)';
+      const regex = new RegExp('(\\s|^)' + shortWords + '\\s+', 'gi');
+
+      elements.forEach(el => {
+        el.innerHTML = el.innerHTML.replace(regex, '$1$2&nbsp;');
+      });
     });
   </script>
 
