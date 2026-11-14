@@ -227,15 +227,16 @@ nav a:hover::after{width:100%}
 .contact-item a,.contact-item span{font-size:17px;color:var(--plum)}
 .map{
   border-radius:var(--radius);min-height:380px;
+  max-width: 100%;
+  overflow: hidden;
   background:linear-gradient(150deg,#e8e0d0,#d9cfba);
   display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;
   color:#8a7a68;font-size:13px;letter-spacing:.15em;text-transform:uppercase;
   box-shadow:inset 0 0 60px rgba(46,26,71,.08);
 }
 
-.map-container {
-  overflow: hidden;
-  width: 100%;
+.map-container iframe{
+  max-width: 100%;
 }
 
 /* ---------- Подвал ---------- */
